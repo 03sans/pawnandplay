@@ -507,7 +507,7 @@ public class boardGames extends javax.swing.JFrame {
 
         pProdbtn.setBackground(new java.awt.Color(239, 183, 183));
         pProdbtn.setFont(new java.awt.Font("ITF Devanagari Marathi", 0, 18)); // NOI18N
-        pProdbtn.setText("Product");
+        pProdbtn.setText("Saman");
         pProdbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pProdbtnActionPerformed(evt);
