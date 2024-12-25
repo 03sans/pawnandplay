@@ -12,10 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.border.TitledBorder;
-
 
 /**
  *
@@ -25,6 +21,8 @@ public class boardGames extends javax.swing.JFrame {
     
     private List<gamesModel> gamesList;
     private java.awt.CardLayout cardLayout;
+    private final Color errorColor = new Color(255, 51, 0);
+    private final Color greenColor = new Color(0, 255, 0);
     //private final ValidationUtil validationUtil;
     
     /**
@@ -134,19 +132,19 @@ public class boardGames extends javax.swing.JFrame {
         mainheader1 = new javax.swing.JLabel();
         mainheader2 = new javax.swing.JLabel();
         mainpawnimg = new javax.swing.JLabel();
-        mainMenuBar = new javax.swing.JPanel();
         hHomebtn = new javax.swing.JButton();
         hProdbtn = new javax.swing.JButton();
         hEntrybtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         maintext = new javax.swing.JTextArea();
         homeimg = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         productPage = new javax.swing.JPanel();
         productHeader = new javax.swing.JPanel();
         prodheader1 = new javax.swing.JLabel();
         prodheader2 = new javax.swing.JLabel();
         prodpawnimg = new javax.swing.JLabel();
-        productMenuBar = new javax.swing.JPanel();
         pHomebtn = new javax.swing.JButton();
         pProdbtn = new javax.swing.JButton();
         pEntrybtn = new javax.swing.JButton();
@@ -159,10 +157,9 @@ public class boardGames extends javax.swing.JFrame {
         entryheader1 = new javax.swing.JLabel();
         entryheader2 = new javax.swing.JLabel();
         entrypawnimg = new javax.swing.JLabel();
-        entryMenuBar = new javax.swing.JPanel();
-        eHomebtn = new javax.swing.JButton();
-        eProdbtn = new javax.swing.JButton();
         eEntrybtn = new javax.swing.JButton();
+        eProdbtn = new javax.swing.JButton();
+        eHomebtn = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         entrytext = new javax.swing.JTextArea();
         entryimg1 = new javax.swing.JLabel();
@@ -257,30 +254,35 @@ public class boardGames extends javax.swing.JFrame {
         loginScreen.setLayout(loginScreenLayout);
         loginScreenLayout.setHorizontalGroup(
             loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginScreenLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(loginScreenLayout.createSequentialGroup()
                 .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(loginScreenLayout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(loginScreenLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(loginLabel)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
+                .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginScreenLayout.createSequentialGroup()
+                        .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(loginerror, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(loginScreenLayout.createSequentialGroup()
+                                    .addGap(183, 183, 183)
+                                    .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(usernameField)
+                                        .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))))
+                            .addGroup(loginScreenLayout.createSequentialGroup()
+                                .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(passwordLabel)
+                                    .addComponent(usernameLabel))
+                                .addGap(314, 314, 314)))
+                        .addGap(145, 145, 145))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginScreenLayout.createSequentialGroup()
                         .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(347, 347, 347))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginScreenLayout.createSequentialGroup()
-                        .addComponent(loginLabel)
-                        .addGap(426, 426, 426))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginScreenLayout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
-                .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(loginerror, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(loginScreenLayout.createSequentialGroup()
-                        .addComponent(passwordLabel)
-                        .addGap(37, 37, 37)
-                        .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(usernameField)
-                            .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)))
-                    .addComponent(usernameLabel))
-                .addGap(145, 145, 145))
+                        .addGap(328, 328, 328))))
         );
         loginScreenLayout.setVerticalGroup(
             loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,22 +291,30 @@ public class boardGames extends javax.swing.JFrame {
                 .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginScreenLayout.createSequentialGroup()
                         .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)
+                        .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(loginScreenLayout.createSequentialGroup()
+                                .addGap(79, 79, 79)
+                                .addComponent(usernameLabel)
+                                .addGap(41, 41, 41))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginScreenLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(51, 51, 51)))
                         .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(usernameLabel)
-                            .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(143, 143, 143)
-                        .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(passwordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(passwordField)))
-                    .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(loginerror, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
-                .addComponent(loginLabel)
-                .addGap(24, 24, 24))
+                            .addComponent(passwordLabel)
+                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(69, 69, 69)
+                        .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(loginScreenLayout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(loginerror, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(91, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginScreenLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(loginLabel)
+                        .addGap(51, 51, 51))))
         );
 
         homePage.setBackground(new java.awt.Color(128, 74, 74));
@@ -324,34 +334,6 @@ public class boardGames extends javax.swing.JFrame {
         mainheader2.setText("PAWN AND PLAY");
 
         mainpawnimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pawnandplay/resources/head.png"))); // NOI18N
-
-        javax.swing.GroupLayout mainHeaderLayout = new javax.swing.GroupLayout(mainHeader);
-        mainHeader.setLayout(mainHeaderLayout);
-        mainHeaderLayout.setHorizontalGroup(
-            mainHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainHeaderLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(mainHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(mainheader1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(mainheader2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(mainpawnimg)
-                .addGap(135, 135, 135))
-        );
-        mainHeaderLayout.setVerticalGroup(
-            mainHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainHeaderLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(mainheader1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mainheader2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(16, 16, 16))
-            .addComponent(mainpawnimg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-        );
-
-        mainMenuBar.setBackground(new java.awt.Color(239, 183, 183));
-        mainMenuBar.setBounds(new java.awt.Rectangle(0, 102, 1512, 61));
-        mainMenuBar.setMaximumSize(new java.awt.Dimension(1512, 61));
 
         hHomebtn.setBackground(new java.awt.Color(239, 183, 183));
         hHomebtn.setFont(new java.awt.Font("ITF Devanagari Marathi", 0, 18)); // NOI18N
@@ -380,69 +362,99 @@ public class boardGames extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout mainMenuBarLayout = new javax.swing.GroupLayout(mainMenuBar);
-        mainMenuBar.setLayout(mainMenuBarLayout);
-        mainMenuBarLayout.setHorizontalGroup(
-            mainMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainMenuBarLayout.createSequentialGroup()
-                .addGap(333, 333, 333)
+        javax.swing.GroupLayout mainHeaderLayout = new javax.swing.GroupLayout(mainHeader);
+        mainHeader.setLayout(mainHeaderLayout);
+        mainHeaderLayout.setHorizontalGroup(
+            mainHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainHeaderLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(mainHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(mainheader1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(mainheader2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 599, Short.MAX_VALUE)
                 .addComponent(hHomebtn)
-                .addGap(308, 308, 308)
+                .addGap(52, 52, 52)
                 .addComponent(hProdbtn)
-                .addGap(308, 308, 308)
+                .addGap(52, 52, 52)
                 .addComponent(hEntrybtn)
-                .addContainerGap(405, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(mainpawnimg)
+                .addGap(135, 135, 135))
         );
-        mainMenuBarLayout.setVerticalGroup(
-            mainMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainMenuBarLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(mainMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hHomebtn)
-                    .addComponent(hProdbtn)
-                    .addComponent(hEntrybtn))
-                .addGap(0, 19, Short.MAX_VALUE))
+        mainHeaderLayout.setVerticalGroup(
+            mainHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainpawnimg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(mainHeaderLayout.createSequentialGroup()
+                .addGroup(mainHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainHeaderLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(mainheader1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mainheader2))
+                    .addGroup(mainHeaderLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(mainHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(hHomebtn)
+                            .addComponent(hProdbtn)
+                            .addComponent(hEntrybtn))))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        maintext.setBackground(new java.awt.Color(128, 74, 74));
+        maintext.setBackground(new java.awt.Color(239, 183, 183));
         maintext.setColumns(20);
         maintext.setFont(new java.awt.Font("ITF Devanagari Marathi", 0, 24)); // NOI18N
-        maintext.setForeground(new java.awt.Color(255, 255, 255));
+        maintext.setForeground(new java.awt.Color(51, 51, 51));
         maintext.setRows(5);
         maintext.setText("                                          Welcome to Pawn & Play –\n                                 Your Ultimate Board Game Destination!\n\n   At Pawn & Play, we believe that life’s best moments happen around a game board. \n   Whether you’re a seasoned strategist, a casual player, or someone just discovering\n   the joy of board gaming, we have something for everyone. From timeless classics to \n   the latest adventures, our collection spans a world of fun, strategy, and unforgettable\n   memories.\n\n\n   Explore our carefully curated selection of family games, party hits, strategic epics,\n   and everything in between. With our passion for play and commitment to quality, \n   we aim to bring people together one game at a time.\n\n\n            Your next great gaming experience starts here. Ready to roll the dice?");
         maintext.setBorder(null);
         maintext.setCaretColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(maintext);
 
-        homeimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pawnandplay/resources/home.jpeg"))); // NOI18N
+        homeimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pawnandplay/resources/home2.png"))); // NOI18N
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pawnandplay/resources/gifff.gif"))); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("ITF Devanagari Marathi", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Oh..you rook like you're in trouble!");
 
         javax.swing.GroupLayout homePageLayout = new javax.swing.GroupLayout(homePage);
         homePage.setLayout(homePageLayout);
         homePageLayout.setHorizontalGroup(
             homePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homePageLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(homeimg, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 857, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(mainHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 470, Short.MAX_VALUE))
             .addGroup(homePageLayout.createSequentialGroup()
-                .addGroup(homePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(mainHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(mainMenuBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 451, Short.MAX_VALUE))
+                .addGroup(homePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(homePageLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(homeimg, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(homePageLayout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addGroup(homePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         homePageLayout.setVerticalGroup(
             homePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homePageLayout.createSequentialGroup()
                 .addComponent(mainHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(mainMenuBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addGroup(homePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(homeimg, javax.swing.GroupLayout.PREFERRED_SIZE, 661, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addContainerGap(465, Short.MAX_VALUE))
+                .addGroup(homePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(homePageLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(homeimg, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(homePageLayout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(558, Short.MAX_VALUE))
         );
 
         productPage.setBackground(new java.awt.Color(128, 74, 74));
@@ -453,6 +465,7 @@ public class boardGames extends javax.swing.JFrame {
         productHeader.setBackground(new java.awt.Color(194, 117, 117));
         productHeader.setBounds(new java.awt.Rectangle(0, 0, 1512, 102));
         productHeader.setMaximumSize(new java.awt.Dimension(1512, 102));
+        productHeader.setPreferredSize(new java.awt.Dimension(1890, 119));
 
         prodheader1.setFont(new java.awt.Font("ITF Devanagari Marathi", 0, 24)); // NOI18N
         prodheader1.setText("GAME ON - THE FUN NEVER ENDS");
@@ -462,39 +475,7 @@ public class boardGames extends javax.swing.JFrame {
         prodheader2.setText("PAWN AND PLAY");
 
         prodpawnimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pawnandplay/resources/head.png"))); // NOI18N
-
-        javax.swing.GroupLayout productHeaderLayout = new javax.swing.GroupLayout(productHeader);
-        productHeader.setLayout(productHeaderLayout);
-        productHeaderLayout.setHorizontalGroup(
-            productHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(productHeaderLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(productHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(prodheader1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(prodheader2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1018, Short.MAX_VALUE)
-                .addComponent(prodpawnimg)
-                .addGap(366, 366, 366))
-        );
-        productHeaderLayout.setVerticalGroup(
-            productHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, productHeaderLayout.createSequentialGroup()
-                .addGroup(productHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(productHeaderLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(prodpawnimg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(productHeaderLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(prodheader1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(prodheader2, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)))
-                .addGap(0, 0, 0))
-        );
-
-        productMenuBar.setBackground(new java.awt.Color(239, 183, 183));
-        productMenuBar.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), null));
-        productMenuBar.setBounds(new java.awt.Rectangle(0, 102, 1512, 61));
-        productMenuBar.setMaximumSize(new java.awt.Dimension(1512, 61));
+        prodpawnimg.setSize(new java.awt.Dimension(55, 136));
 
         pHomebtn.setBackground(new java.awt.Color(239, 183, 183));
         pHomebtn.setFont(new java.awt.Font("ITF Devanagari Marathi", 0, 18)); // NOI18N
@@ -507,7 +488,8 @@ public class boardGames extends javax.swing.JFrame {
 
         pProdbtn.setBackground(new java.awt.Color(239, 183, 183));
         pProdbtn.setFont(new java.awt.Font("ITF Devanagari Marathi", 0, 18)); // NOI18N
-        pProdbtn.setText("Saman");
+        pProdbtn.setText("Product");
+        pProdbtn.setActionCommand("Product");
         pProdbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pProdbtnActionPerformed(evt);
@@ -523,28 +505,43 @@ public class boardGames extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout productMenuBarLayout = new javax.swing.GroupLayout(productMenuBar);
-        productMenuBar.setLayout(productMenuBarLayout);
-        productMenuBarLayout.setHorizontalGroup(
-            productMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(productMenuBarLayout.createSequentialGroup()
-                .addGap(273, 273, 273)
+        javax.swing.GroupLayout productHeaderLayout = new javax.swing.GroupLayout(productHeader);
+        productHeader.setLayout(productHeaderLayout);
+        productHeaderLayout.setHorizontalGroup(
+            productHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(productHeaderLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(productHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(prodheader2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(prodheader1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 599, Short.MAX_VALUE)
                 .addComponent(pHomebtn)
-                .addGap(353, 353, 353)
+                .addGap(52, 52, 52)
                 .addComponent(pProdbtn)
-                .addGap(394, 394, 394)
+                .addGap(52, 52, 52)
                 .addComponent(pEntrybtn)
-                .addContainerGap(510, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(prodpawnimg)
+                .addGap(105, 105, 105))
         );
-        productMenuBarLayout.setVerticalGroup(
-            productMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, productMenuBarLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addGroup(productMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        productHeaderLayout.setVerticalGroup(
+            productHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(productHeaderLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(prodheader1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(prodheader2)
+                .addContainerGap(16, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, productHeaderLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(productHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pHomebtn)
                     .addComponent(pProdbtn)
                     .addComponent(pEntrybtn))
-                .addGap(21, 21, 21))
+                .addGap(40, 40, 40))
+            .addGroup(productHeaderLayout.createSequentialGroup()
+                .addComponent(prodpawnimg, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         gameTable.setBackground(new java.awt.Color(239, 183, 183));
@@ -581,30 +578,25 @@ public class boardGames extends javax.swing.JFrame {
         productPageLayout.setHorizontalGroup(
             productPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(productPageLayout.createSequentialGroup()
-                .addGroup(productPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(productMenuBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(productHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(productPageLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(productPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1004, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(prodimg, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(productPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(productHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 1537, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(productPageLayout.createSequentialGroup()
+                        .addGroup(productPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1004, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addComponent(prodimg, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(353, Short.MAX_VALUE))
         );
         productPageLayout.setVerticalGroup(
             productPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(productPageLayout.createSequentialGroup()
                 .addComponent(productHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(productMenuBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addGap(141, 141, 141)
                 .addGroup(productPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(productPageLayout.createSequentialGroup()
                         .addComponent(prodimg)
-                        .addContainerGap(323, Short.MAX_VALUE))
+                        .addContainerGap(336, Short.MAX_VALUE))
                     .addGroup(productPageLayout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -631,43 +623,12 @@ public class boardGames extends javax.swing.JFrame {
 
         entrypawnimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pawnandplay/resources/head.png"))); // NOI18N
 
-        javax.swing.GroupLayout entryHeaderLayout = new javax.swing.GroupLayout(entryHeader);
-        entryHeader.setLayout(entryHeaderLayout);
-        entryHeaderLayout.setHorizontalGroup(
-            entryHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(entryHeaderLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(entryHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(entryheader1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(entryheader2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(entrypawnimg)
-                .addGap(87, 87, 87))
-        );
-        entryHeaderLayout.setVerticalGroup(
-            entryHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(entryHeaderLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(entryheader1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(entryheader2, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                .addGap(16, 16, 16))
-            .addGroup(entryHeaderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(entrypawnimg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        entryMenuBar.setBackground(new java.awt.Color(239, 183, 183));
-        entryMenuBar.setBounds(new java.awt.Rectangle(0, 102, 1512, 61));
-        entryMenuBar.setMaximumSize(new java.awt.Dimension(1512, 61));
-
-        eHomebtn.setBackground(new java.awt.Color(239, 183, 183));
-        eHomebtn.setFont(new java.awt.Font("ITF Devanagari Marathi", 0, 18)); // NOI18N
-        eHomebtn.setText("Home");
-        eHomebtn.addActionListener(new java.awt.event.ActionListener() {
+        eEntrybtn.setBackground(new java.awt.Color(239, 183, 183));
+        eEntrybtn.setFont(new java.awt.Font("ITF Devanagari Marathi", 0, 18)); // NOI18N
+        eEntrybtn.setText("Entry");
+        eEntrybtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eHomebtnActionPerformed(evt);
+                eEntrybtnActionPerformed(evt);
             }
         });
 
@@ -680,43 +641,59 @@ public class boardGames extends javax.swing.JFrame {
             }
         });
 
-        eEntrybtn.setBackground(new java.awt.Color(239, 183, 183));
-        eEntrybtn.setFont(new java.awt.Font("ITF Devanagari Marathi", 0, 18)); // NOI18N
-        eEntrybtn.setText("Entry");
-        eEntrybtn.addActionListener(new java.awt.event.ActionListener() {
+        eHomebtn.setBackground(new java.awt.Color(239, 183, 183));
+        eHomebtn.setFont(new java.awt.Font("ITF Devanagari Marathi", 0, 18)); // NOI18N
+        eHomebtn.setText("Home");
+        eHomebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eEntrybtnActionPerformed(evt);
+                eHomebtnActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout entryMenuBarLayout = new javax.swing.GroupLayout(entryMenuBar);
-        entryMenuBar.setLayout(entryMenuBarLayout);
-        entryMenuBarLayout.setHorizontalGroup(
-            entryMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(entryMenuBarLayout.createSequentialGroup()
-                .addGap(333, 333, 333)
+        javax.swing.GroupLayout entryHeaderLayout = new javax.swing.GroupLayout(entryHeader);
+        entryHeader.setLayout(entryHeaderLayout);
+        entryHeaderLayout.setHorizontalGroup(
+            entryHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(entryHeaderLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(entryHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(entryheader2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(entryheader1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 617, Short.MAX_VALUE)
                 .addComponent(eHomebtn)
-                .addGap(308, 308, 308)
+                .addGap(52, 52, 52)
                 .addComponent(eProdbtn)
-                .addGap(308, 308, 308)
+                .addGap(52, 52, 52)
                 .addComponent(eEntrybtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(entrypawnimg)
+                .addGap(135, 135, 135))
         );
-        entryMenuBarLayout.setVerticalGroup(
-            entryMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entryMenuBarLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addGroup(entryMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(eHomebtn)
+        entryHeaderLayout.setVerticalGroup(
+            entryHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(entryHeaderLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(entryheader1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(entryheader2)
+                .addContainerGap(12, Short.MAX_VALUE))
+            .addGroup(entryHeaderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(entrypawnimg, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entryHeaderLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(entryHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(eEntrybtn)
                     .addComponent(eProdbtn)
-                    .addComponent(eEntrybtn))
-                .addGap(19, 19, 19))
+                    .addComponent(eHomebtn))
+                .addGap(39, 39, 39))
         );
 
-        entrytext.setBackground(new java.awt.Color(128, 74, 74));
+        entrytext.setBackground(new java.awt.Color(239, 183, 183));
         entrytext.setColumns(20);
         entrytext.setFont(new java.awt.Font("ITF Devanagari Marathi", 0, 18)); // NOI18N
-        entrytext.setForeground(new java.awt.Color(255, 255, 255));
+        entrytext.setForeground(new java.awt.Color(51, 51, 51));
         entrytext.setRows(5);
         entrytext.setText("                     Your adventure into the world of board games is just around the corner! \n                Whether you’re planning an epic strategy night, a family-friendly competition, \n                       or a cozy puzzle session, your cart is filled with fun waiting to happen.\n\n          Board games aren’t just games—they’re stories, challenges, and unforgettable memories.\n        Take a moment to double-check your selections, and get ready to roll the dice, shuffle the \n                                                    cards, or conquer the board.");
         entrytext.setBorder(null);
@@ -835,7 +812,7 @@ public class boardGames extends javax.swing.JFrame {
                     .addComponent(stockErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(priceErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(brandErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         entrypanelLayout.setVerticalGroup(
             entrypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -890,57 +867,51 @@ public class boardGames extends javax.swing.JFrame {
         entryPage.setLayout(entryPageLayout);
         entryPageLayout.setHorizontalGroup(
             entryPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(entryHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(entryMenuBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, entryPageLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(entryimg2)
-                .addGap(0, 0, 0)
-                .addGroup(entryPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(updatebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(deletebtn)
-                    .addComponent(addbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(90, 90, 90))
             .addGroup(entryPageLayout.createSequentialGroup()
                 .addGroup(entryPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(entryPageLayout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(entryimg1)
-                        .addGap(133, 133, 133)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 757, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(entryPageLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
+                        .addGap(47, 47, 47)
                         .addComponent(entrypanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(159, 159, 159)))
-                .addContainerGap(423, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entryimg2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addGroup(entryPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(updatebtn)
+                            .addComponent(addbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deletebtn)))
+                    .addGroup(entryPageLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(entryimg1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(134, 134, 134)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(entryHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         entryPageLayout.setVerticalGroup(
             entryPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(entryPageLayout.createSequentialGroup()
                 .addComponent(entryHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(entryMenuBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(entryPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(entryPageLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(entryimg1)
-                        .addGap(47, 47, 47)
-                        .addComponent(entrypanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addComponent(entryimg1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(entryPageLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
+                        .addGap(407, 407, 407)
+                        .addComponent(addbtn)
+                        .addGap(80, 80, 80)
+                        .addComponent(updatebtn)
+                        .addGap(80, 80, 80)
+                        .addComponent(deletebtn))
+                    .addGroup(entryPageLayout.createSequentialGroup()
+                        .addGap(103, 103, 103)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(entryPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(entryimg2)
                             .addGroup(entryPageLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(entryimg2))
-                            .addGroup(entryPageLayout.createSequentialGroup()
-                                .addGap(111, 111, 111)
-                                .addComponent(addbtn)
-                                .addGap(80, 80, 80)
-                                .addComponent(updatebtn)
-                                .addGap(80, 80, 80)
-                                .addComponent(deletebtn)))))
-                .addContainerGap(1171, Short.MAX_VALUE))
+                                .addGap(95, 95, 95)
+                                .addComponent(entrypanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(1248, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -979,7 +950,7 @@ public class boardGames extends javax.swing.JFrame {
 
         loadingimg2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pawnandplay/resources/loading2.png"))); // NOI18N
 
-        loadingimg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pawnandplay/resources/loading1.png"))); // NOI18N
+        loadingimg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pawnandplay/resources/giphy.gif"))); // NOI18N
 
         javax.swing.GroupLayout loadingScreenLayout = new javax.swing.GroupLayout(loadingScreen);
         loadingScreen.setLayout(loadingScreenLayout);
@@ -1069,32 +1040,6 @@ public class boardGames extends javax.swing.JFrame {
         // Call the method to populate the table with the gamesList data
         loadListToTable(gamesList);
     }
-   
-        /**
-      * Clears all the input fields in the board games form.
-      */
-    private void clearGameFields() {
-         idfield.setText("");            // Clear the ID field
-         namefield.setText("");   // Clear the product name field
-         levelfield.setText("");         // Clear the level field
-         genrefield.setText("");         // Clear the genre field
-         agefield.setText("");           // Clear the age field
-         stockfield.setText("");         // Clear the stock field
-         pricefield.setText("");         // Clear the price field
-         brandfield.setText("");         // Clear the brand field
-     }
-    
-    private void errorOrNormalField(JTextField textField, String fieldName, JLabel errorLbl, String errorMsg, Color color, boolean isError){
-        textField.setBorder(
-                javax.swing.BorderFactory.createTitledBorder(
-                    javax.swing.BorderFactory.createLineBorder(color, 2), fieldName, javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, 
-                    javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12),color));
-        
-        if(isError) {
-            errorLbl.setText(errorMsg);
-            errorLbl.setVisible(true);
-        }   
-    }
     
       
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
@@ -1160,128 +1105,99 @@ public class boardGames extends javax.swing.JFrame {
     }//GEN-LAST:event_pEntrybtnActionPerformed
     
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
-    String idText = idfield.getText().trim();
-    String name = namefield.getText().trim();
-    String level = levelfield.getText().trim();
-    String genre = genrefield.getText().trim();
-    String ageText = agefield.getText().trim();
-    String stockText = stockfield.getText().trim();
-    String priceText = pricefield.getText().trim();
-    String brand = brandfield.getText().trim();
+    boolean isValid = true;
 
+    // Validate ID
+    isValid &= validateField(
+            idfield, "ID", idErrorLabel, "ID must be a positive number.",
+            errorColor, greenColor, ValidationUtil.isIdValid(idfield.getText().trim())
+    );
+
+    // Validate Name
+    isValid &= validateField(
+            namefield, "Product Name", nameErrorLabel, "Product name can only contain letters and spaces.",
+            errorColor, greenColor, ValidationUtil.isValidProductName(namefield.getText().trim())
+    );
+
+    // Validate Level
+    isValid &= validateField(
+            levelfield, "Level", levelErrorLabel, "Level must be Beginner, Intermediate, or Expert.",
+            errorColor, greenColor, ValidationUtil.isValidLevel(levelfield.getText().trim())
+    );
+
+    // Validate Genre
+    isValid &= validateField(
+            genrefield, "Genre", genreErrorLabel, "Invalid genre. Choose a valid option.",
+            errorColor, greenColor, ValidationUtil.isValidGenre(genrefield.getText().trim())
+    );
+
+    // Validate Brand
+    isValid &= validateField(
+            brandfield, "Brand", brandErrorLabel, "Brand can only contain letters, numbers, and spaces.",
+            errorColor, greenColor, ValidationUtil.isValidBrand(brandfield.getText().trim())
+    );
+
+    // Validate Age
     try {
-        // Validate ID
-        if (!ValidationUtil.isIdValid(idText)) {
-            errorOrNormalField(idfield, "ID", idErrorLabel, "ID must be a positive number.", Color.RED, true);
-            return;
-        } else {
-            errorOrNormalField(idfield, "ID", idErrorLabel, "", Color.GREEN, false);
-        }
+        int age = Integer.parseInt(agefield.getText().trim());
+        isValid &= validateField(
+                agefield, "Age", ageErrorLabel, "Age must be between 4 and 99.",
+                errorColor, greenColor, ValidationUtil.isValidAge(age)
+        );
+    } catch (NumberFormatException e) {
+        validateField(agefield, "Age", ageErrorLabel, "Age must be a valid number.", errorColor, greenColor, false);
+        isValid = false;
+    }
 
-        // Validate Name
-        if (!ValidationUtil.isValidProductName(name)) {
-            errorOrNormalField(namefield, "Product Name", nameErrorLabel, "Product name can only contain letters and spaces.", Color.RED, true);
-            return;
-        } else {
-            errorOrNormalField(namefield, "Product Name", nameErrorLabel, "", Color.GREEN, false);
-        }
+    // Validate Stock
+    try {
+        int stock = Integer.parseInt(stockfield.getText().trim());
+        isValid &= validateField(
+                stockfield, "Stock", stockErrorLabel, "Stock cannot be negative.",
+                errorColor, greenColor, ValidationUtil.isValidStock(stock)
+        );
+    } catch (NumberFormatException e) {
+        validateField(stockfield, "Stock", stockErrorLabel, "Stock must be a valid number.", errorColor, greenColor, false);
+        isValid = false;
+    }
 
-        // Validate Level
-        if (!ValidationUtil.isValidLevel(level)) {
-            errorOrNormalField(levelfield, "Level", levelErrorLabel, "Level must be Beginner, Intermediate, or Expert.", Color.RED, true);
-            return;
-        } else {
-            errorOrNormalField(levelfield, "Level", levelErrorLabel, "", Color.GREEN, false);
-        }
+    // Validate Price
+    try {
+        double price = Double.parseDouble(pricefield.getText().trim());
+        isValid &= validateField(
+                pricefield, "Price", priceErrorLabel, "Price must be greater than zero.",
+                errorColor, greenColor, ValidationUtil.isValidPrice(price)
+        );
+    } catch (NumberFormatException e) {
+        validateField(pricefield, "Price", priceErrorLabel, "Price must be a valid number.", errorColor, greenColor, false);
+        isValid = false;
+    }
 
-        // Validate Genre
-        if (!ValidationUtil.isValidGenre(genre)) {
-            errorOrNormalField(genrefield, "Genre", genreErrorLabel, "Invalid genre. Choose a valid option.", Color.RED, true);
-            return;
-        } else {
-            errorOrNormalField(genrefield, "Genre", genreErrorLabel, "", Color.GREEN, false);
-        }
-
-        // Validate Brand
-        if (!ValidationUtil.isValidBrand(brand)) {
-            errorOrNormalField(brandfield, "Brand", brandErrorLabel, "Brand can only contain letters, numbers, and spaces.", Color.RED, true);
-            return;
-        } else {
-            errorOrNormalField(brandfield, "Brand", brandErrorLabel, "", Color.GREEN, false);
-        }
-
-        // Validate numeric fields for Age, Stock, and Price
-        int age = 0, stock = 0;
-        double price = 0.0;
-
-        // Validate Age
-        try {
-            age = Integer.parseInt(ageText);
-            if (!ValidationUtil.isValidAge(age)) {
-                errorOrNormalField(agefield, "Age", ageErrorLabel, "Age must be between 4 and 99.", Color.RED, true);
-                return;
-            } else {
-                errorOrNormalField(agefield, "Age", ageErrorLabel, "", Color.GREEN, false);
-            }
-        } catch (NumberFormatException e) {
-            errorOrNormalField(agefield, "Age", ageErrorLabel, "Age must be a valid number.", Color.RED, true);
-            return;
-        }
-
-        // Validate Stock
-        try {
-            stock = Integer.parseInt(stockText);
-            if (!ValidationUtil.isValidStock(stock)) {
-                errorOrNormalField(stockfield, "Stock", stockErrorLabel, "Stock cannot be negative.", Color.RED, true);
-                return;
-            } else {
-                errorOrNormalField(stockfield, "Stock", stockErrorLabel, "", Color.GREEN, false);
-            }
-        } catch (NumberFormatException e) {
-            errorOrNormalField(stockfield, "Stock", stockErrorLabel, "Stock must be a valid number.", Color.RED, true);
-            return;
-        }
-
-        // Validate Price
-        try {
-            price = Double.parseDouble(priceText);
-            if (!ValidationUtil.isValidPrice(price)) {
-                errorOrNormalField(pricefield, "Price", priceErrorLabel, "Price must be greater than zero.", Color.RED, true);
-                return;
-            } else {
-                errorOrNormalField(pricefield, "Price", priceErrorLabel, "", Color.GREEN, false);
-            }
-        } catch (NumberFormatException e) {
-            errorOrNormalField(pricefield, "Price", priceErrorLabel, "Price must be a valid number.", Color.RED, true);
-            return;
-        }
-
-        // If all fields are valid, proceed to add the game
+    if (isValid) {
+        // Create a new game instance
         gamesModel newGame = new gamesModel(
-            Integer.parseInt(idText), name, level, genre, age, stock, (int)price, brand
+                Integer.parseInt(idfield.getText().trim()),
+                namefield.getText().trim(),
+                levelfield.getText().trim(),
+                genrefield.getText().trim(),
+                Integer.parseInt(agefield.getText().trim()),
+                Integer.parseInt(stockfield.getText().trim()),
+                (int) Double.parseDouble(pricefield.getText().trim()),
+                brandfield.getText().trim()
         );
 
-        // Assuming the method registerGame adds the new game to your data structure
-        registerGame(newGame);
-
-        // Show success message
-        JOptionPane.showMessageDialog(this, "Game added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
-
-        // Clear fields after successful addition
-        clearGameFields();
-
-        // Reset error fields to normal state
-        errorOrNormalField(idfield, "", idErrorLabel, "", Color.BLACK, false);
-        errorOrNormalField(namefield, "", nameErrorLabel, "", Color.BLACK, false);
-        errorOrNormalField(levelfield, "", levelErrorLabel, "", Color.BLACK, false);
-        errorOrNormalField(genrefield, "", genreErrorLabel, "", Color.BLACK, false);
-        errorOrNormalField(agefield, "", ageErrorLabel, "", Color.BLACK, false);
-        errorOrNormalField(stockfield, "", stockErrorLabel, "", Color.BLACK, false);
-        errorOrNormalField(pricefield, "", priceErrorLabel, "", Color.BLACK, false);
-        errorOrNormalField(brandfield, "", brandErrorLabel, "", Color.BLACK, false);
-
-    } catch (Exception ex) {
-        JOptionPane.showMessageDialog(this, "An unexpected error occurred.", "Error", JOptionPane.ERROR_MESSAGE);
+        // Check for duplicate ID
+        if (checkDuplicateGame(newGame)) {
+            idfield.setBorder(createTitledBorder(errorColor, "ID"));
+            showDialogBox("ID already exists.", "Duplicate Entry", JOptionPane.WARNING_MESSAGE);
+        } else {
+            // Add the game if no duplicate is found
+            gamesList.add(newGame);
+            clearGameFields();
+            loadListToTable(gamesList);
+            idfield.setBorder(createTitledBorder(greenColor, "ID"));
+            showDialogBox("Game added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
     }//GEN-LAST:event_addbtnActionPerformed
 
@@ -1291,7 +1207,104 @@ public class boardGames extends javax.swing.JFrame {
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
         // TODO add your handling code here:
-        
+        boolean isValid = true;
+
+    // Validate Game ID
+    isValid &= validateField(
+            idfield, "Game ID", idErrorLabel, "Must be a positive number.",
+            errorColor, greenColor, ValidationUtil.isIdValid(idfield.getText())
+    );
+
+    // Validate Product Name
+    isValid &= validateField(
+            namefield, "Product Name", nameErrorLabel, "Must contain only letters and spaces.",
+            errorColor, greenColor, ValidationUtil.isValidProductName(namefield.getText())
+    );
+
+    // Validate Level
+    isValid &= validateField(
+            levelfield, "Level", levelErrorLabel, "Must be Beginner, Intermediate, or Expert.",
+            errorColor, greenColor, ValidationUtil.isValidLevel(levelfield.getText())
+    );
+
+    // Validate Genre
+    isValid &= validateField(
+            genrefield, "Genre", genreErrorLabel, "Invalid genre. Choose a valid option.",
+            errorColor, greenColor, ValidationUtil.isValidGenre(genrefield.getText())
+    );
+
+    // Validate Brand
+    isValid &= validateField(
+            brandfield, "Brand", brandErrorLabel, "Must contain only letters, numbers, and spaces.",
+            errorColor, greenColor, ValidationUtil.isValidBrand(brandfield.getText())
+    );
+
+    // Validate Age
+    try {
+        int age = Integer.parseInt(agefield.getText().trim());
+        isValid &= validateField(
+                agefield, "Age", ageErrorLabel, "Must be a valid number between 4 and 99.",
+                errorColor, greenColor, ValidationUtil.isValidAge(age)
+        );
+    } catch (NumberFormatException e) {
+        validateField(agefield, "Age", ageErrorLabel, "Must be a valid number.", errorColor, greenColor, false);
+        isValid = false;
+    }
+
+    // Validate Stock
+    try {
+        int stock = Integer.parseInt(stockfield.getText().trim());
+        isValid &= validateField(
+                stockfield, "Stock", stockErrorLabel, "Stock cannot be negative.",
+                errorColor, greenColor, ValidationUtil.isValidStock(stock)
+        );
+    } catch (NumberFormatException e) {
+        validateField(stockfield, "Stock", stockErrorLabel, "Must be a valid number.", errorColor, greenColor, false);
+        isValid = false;
+    }
+
+    // Validate Price
+    try {
+        double price = Double.parseDouble(pricefield.getText().trim());
+        isValid &= validateField(
+                pricefield, "Price", priceErrorLabel, "Price must be greater than zero.",
+                errorColor, greenColor, ValidationUtil.isValidPrice(price)
+        );
+    } catch (NumberFormatException e) {
+        validateField(pricefield, "Price", priceErrorLabel, "Must be a valid number.", errorColor, greenColor, false);
+        isValid = false;
+    }
+
+    if (isValid) {
+        // Check if the game with the given ID exists
+        int gameId = Integer.parseInt(idfield.getText().trim());
+        gamesModel existingGame = gamesList.stream()
+                .filter(game -> game.getID() == gameId)
+                .findFirst()
+                .orElse(null);
+
+        if (existingGame == null) {
+            idfield.setBorder(createTitledBorder(errorColor, "Game ID"));
+            showDialogBox("Game ID not found. Please provide a valid ID.", "Invalid Entry", JOptionPane.WARNING_MESSAGE);
+        } else {
+            // Update the game details
+            existingGame.setProductname(namefield.getText().trim());
+            existingGame.setLevel(levelfield.getText().trim());
+            existingGame.setGenre(genrefield.getText().trim());
+            existingGame.setAge(Integer.parseInt(agefield.getText().trim()));
+            existingGame.setStock(Integer.parseInt(stockfield.getText().trim()));
+            existingGame.setPrice(Double.parseDouble(pricefield.getText().trim()));
+            existingGame.setBrand(brandfield.getText().trim());
+
+            // Refresh the table and show a success message
+            loadListToTable(gamesList);
+            showDialogBox("Game updated successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+            // Reset form and visual states
+            clearGameFields();
+            idfield.setBorder(createTitledBorder(greenColor, "Game ID"));
+        }
+    }
     }//GEN-LAST:event_updatebtnActionPerformed
 
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
@@ -1341,7 +1354,81 @@ public class boardGames extends javax.swing.JFrame {
         cardLayout.show(getContentPane(), "DataEntryScreen");
     }//GEN-LAST:event_eEntrybtnActionPerformed
 
+    /**
+     * Validates a single input field based on specific criteria and updates its
+     * visual state.
+     *
+     * @param textField the JTextField to validate
+     * @param fieldName the name of the field for error display
+     * @param errorLbl the JLabel to show error messages
+     * @param errorMsg the error message to display for invalid input
+     * @param errorColor the color for error borders and text
+     * @param successColor the color for successful validation borders
+     * @param isValidFormat whether the input satisfies the field-specific
+     * validation criteria
+     * @return true if the field passes validation, false otherwise
+     */
+    private boolean validateField(JTextField textField, String fieldName, JLabel errorLbl, String errorMsg, Color errorColor, Color successColor, boolean isValidFormat) {
+        if (ValidationUtil.isNullOrEmpty(textField.getText())) {
+            textField.setBorder(createTitledBorder(errorColor, fieldName));
+            errorLbl.setText("Field cannot be empty!");
+            errorLbl.setVisible(true);
+            return false;
+        } else if (!isValidFormat) {
+            textField.setBorder(createTitledBorder(errorColor, fieldName));
+            errorLbl.setText(errorMsg);
+            errorLbl.setVisible(true);
+            return false;
+        } else {
+            textField.setBorder(createTitledBorder(successColor, fieldName));
+            errorLbl.setVisible(false);
+            return true;
+        }
+    }
+
+    /**
+     * Creates a custom TitledBorder with specified color and title.
+     *
+     * @param color the color for the border and title
+     * @param title the title text for the border
+     * @return a TitledBorder instance
+     */
+    private javax.swing.border.TitledBorder createTitledBorder(Color color, String title) {
+        return javax.swing.BorderFactory.createTitledBorder(
+                javax.swing.BorderFactory.createLineBorder(color, 2),
+                title,
+                javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
+                javax.swing.border.TitledBorder.DEFAULT_POSITION,
+                new java.awt.Font("Segoe UI", 1, 12),
+                color
+        );
+    }
     
+    /**
+     * Displays a message dialog box with the given message, title, and type.
+     *
+     * @param message the message to display
+     * @param title the title of the dialog box
+     * @param messageType the type of message (e.g., information, warning, or
+     * error)
+     */
+    private void showDialogBox(String message, String title, int messageType) {
+        JOptionPane.showMessageDialog(this, message, title, messageType);
+    }
+    
+        /**
+      * Clears all the input fields in the board games form.
+      */
+    private void clearGameFields() {
+         idfield.setText("");            // Clear the ID field
+         namefield.setText("");   // Clear the product name field
+         levelfield.setText("");         // Clear the level field
+         genrefield.setText("");         // Clear the genre field
+         agefield.setText("");           // Clear the age field
+         stockfield.setText("");         // Clear the stock field
+         pricefield.setText("");         // Clear the price field
+         brandfield.setText("");         // Clear the brand field
+     }
     
    /**
     * Checks whether a game with the same Game ID already exists in the
@@ -1405,7 +1492,6 @@ public class boardGames extends javax.swing.JFrame {
     private javax.swing.JButton eHomebtn;
     private javax.swing.JButton eProdbtn;
     private javax.swing.JPanel entryHeader;
-    private javax.swing.JPanel entryMenuBar;
     private javax.swing.JPanel entryPage;
     private javax.swing.JLabel entryheader1;
     private javax.swing.JLabel entryheader2;
@@ -1428,6 +1514,8 @@ public class boardGames extends javax.swing.JFrame {
     private javax.swing.JTextField idfield;
     private javax.swing.JLabel idlabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1444,7 +1532,6 @@ public class boardGames extends javax.swing.JFrame {
     private javax.swing.JPanel loginScreen;
     private javax.swing.JLabel loginerror;
     private javax.swing.JPanel mainHeader;
-    private javax.swing.JPanel mainMenuBar;
     private javax.swing.JLabel mainheader1;
     private javax.swing.JLabel mainheader2;
     private javax.swing.JLabel mainpawnimg;
@@ -1466,7 +1553,6 @@ public class boardGames extends javax.swing.JFrame {
     private javax.swing.JLabel prodimg;
     private javax.swing.JLabel prodpawnimg;
     private javax.swing.JPanel productHeader;
-    private javax.swing.JPanel productMenuBar;
     private javax.swing.JPanel productPage;
     private javax.swing.JProgressBar progress;
     private javax.swing.JLabel stockErrorLabel;

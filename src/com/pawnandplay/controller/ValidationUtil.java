@@ -1,46 +1,47 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.pawnandplay.controller;
 
-import com.pawnandplay.model.gamesModel;
-import javax.swing.JOptionPane;
+import java.util.regex.Pattern;
 
 /**
  * Utility class for validating fields in the Pawn and Play inventory management system.
- * Provides methods to validate the attributes.
+ * Provides methods to validate various attributes.
  */
-public class ValidationUtil extends gamesModel {
-    
+public class ValidationUtil {
+
+    // Regular expression patterns
+    private static final Pattern PRODUCT_NAME_PATTERN = Pattern.compile("^[a-zA-Z\\s]+$");
+    private static final Pattern LEVEL_PATTERN = Pattern.compile("^(Beginner|Intermediate|Expert)$");
+    private static final Pattern GENRE_PATTERN = Pattern.compile("^(Strategy|Party|Family|Cooperative|Adventure|Fantasy|Sci-Fi|Historical)$");
+    private static final Pattern BRAND_PATTERN = Pattern.compile("^[a-zA-Z0-9\\s]+$");
+
+    /**
+     * Validates if a string is null or empty.
+     *
+     * @param value the string to validate
+     * @return true if the string is null or empty, otherwise false
+     */
+    public static boolean isNullOrEmpty(String value) {
+        return value == null || value.trim().isEmpty();
+    }
+
     /**
      * Validates if the ID is a valid positive integer.
      *
-     * @param ID the ID to validate
+     * @param idText the ID to validate
      * @return true if valid, otherwise false
      */
-    public static boolean isIdValid(String ID) {
+    public static boolean isIdValid(String idText) {
+        if (isNullOrEmpty(idText)) {
+            return false; // ID cannot be empty
+        }
         try {
-            // Check if ID is null or empty
-            if (ID == null || ID.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "ID cannot be empty.", "Invalid ID", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-
-            // Check if the ID is a positive integer
-            int id = Integer.parseInt(ID);
-            if (id <= 0) {
-                JOptionPane.showMessageDialog(null, "ID must be a positive number.", "Invalid ID", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-
-            return true; // Valid ID
+            int id = Integer.parseInt(idText);
+            return id > 0; // ID must be a positive number
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "ID must be a valid numeric value.", "Invalid ID", JOptionPane.ERROR_MESSAGE);
-            return false;
+            return false; // ID must be numeric
         }
     }
-    
+
     /**
      * Validates if the product name contains only alphabets and spaces.
      *
@@ -48,24 +49,7 @@ public class ValidationUtil extends gamesModel {
      * @return true if valid, otherwise false
      */
     public static boolean isValidProductName(String productName) {
-        try {
-            // Check if the product name is null or empty
-            if (productName == null || productName.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Product name cannot be empty.", "Invalid Product Name", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-
-            // Check if the product name has only alphabets and spaces)
-            if (!productName.matches("^[a-zA-Z\\s]+$")) {
-                JOptionPane.showMessageDialog(null, "Product name can only contain letters and spaces.", "Invalid Product Name", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-
-            return true; // Valid product name
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "An unexpected error occurred while validating the product name.", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
+        return !isNullOrEmpty(productName) && PRODUCT_NAME_PATTERN.matcher(productName).matches();
     }
 
     /**
@@ -75,24 +59,7 @@ public class ValidationUtil extends gamesModel {
      * @return true if valid, otherwise false
      */
     public static boolean isValidLevel(String level) {
-        try {
-            // Check if the level is null or empty
-            if (level == null || level.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Level cannot be empty.", "Invalid Level", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-
-            // Check if the level matches one of the allowed values
-            if (!level.matches("^(Beginner|Intermediate|Expert)$")) {
-                JOptionPane.showMessageDialog(null, "Level must be Beginner, Intermediate, or Expert.", "Invalid Level", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-
-            return true; // Valid level
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "An unexpected error occurred while validating the level.", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
+        return !isNullOrEmpty(level) && LEVEL_PATTERN.matcher(level).matches();
     }
 
     /**
@@ -102,24 +69,7 @@ public class ValidationUtil extends gamesModel {
      * @return true if valid, otherwise false
      */
     public static boolean isValidGenre(String genre) {
-        try {
-            // Check if the genre is null or empty
-            if (genre == null || genre.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Genre cannot be empty.", "Invalid Genre", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-
-            // Check if the genre matches one of the allowed values
-            if (!genre.matches("^(Strategy|Party|Family|Cooperative|Adventure|Fantasy|Sci-Fi|Historical)$")) {
-                JOptionPane.showMessageDialog(null, "Genre must be one of the predefined options.", "Invalid Genre", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-
-            return true; // Valid genre
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "An unexpected error occurred while validating the genre.", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
+        return !isNullOrEmpty(genre) && GENRE_PATTERN.matcher(genre).matches();
     }
 
     /**
@@ -129,85 +79,50 @@ public class ValidationUtil extends gamesModel {
      * @return true if valid, otherwise false
      */
     public static boolean isValidAge(int age) {
-        try {
-            // Check if the age is within the allowed range
-            if (age < 4 || age > 99) {
-                JOptionPane.showMessageDialog(null, "Age must be between 4 and 99.", "Invalid Age", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-
-            return true; // Valid age
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "An unexpected error occurred while validating the age.", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
+        return age >= 4 && age <= 99;
     }
 
     /**
-     * Validates if the price is positive.
+     * Validates if the price is a positive value.
      *
      * @param price the price to validate
      * @return true if valid, otherwise false
      */
     public static boolean isValidPrice(double price) {
-        try {
-            // Check if the price is greater than zero
-            if (price <= 0) {
-                JOptionPane.showMessageDialog(null, "Price must be greater than zero.", "Invalid Price", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-
-            return true; // Valid price
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "An unexpected error occurred while validating the price.", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
+        return price > 0;
     }
 
     /**
-     * Validates if the stock is non-negative.
+     * Validates if the stock is a non-negative integer.
      *
      * @param stock the stock to validate
      * @return true if valid, otherwise false
      */
     public static boolean isValidStock(int stock) {
-        try {
-            // Check if the stock is non-negative
-            if (stock < 0) {
-                JOptionPane.showMessageDialog(null, "Stock cannot be negative.", "Invalid Stock", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-
-            return true; // Valid stock
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "An unexpected error occurred while validating the stock.", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
+        return stock >= 0;
     }
 
     /**
-     * Validates if the brand name contains only alphanumeric characters and spaces.
+     * Validates if the brand contains only alphanumeric characters and spaces.
      *
      * @param brand the brand name to validate
      * @return true if valid, otherwise false
      */
     public static boolean isValidBrand(String brand) {
+        return !isNullOrEmpty(brand) && BRAND_PATTERN.matcher(brand).matches();
+    }
+
+    /**
+     * Utility to parse and validate an age value.
+     *
+     * @param ageText the text representing age
+     * @return true if valid, otherwise false
+     */
+    public static boolean validateAgeInput(String ageText) {
         try {
-            // Check if the brand name is null or empty
-            if (brand == null || brand.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Brand name cannot be empty.", "Invalid Brand Name", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-
-            // Check if the brand name matches the allowed pattern (alphanumeric characters and spaces)
-            if (!brand.matches("^[a-zA-Z0-9\\s]+$")) {
-                JOptionPane.showMessageDialog(null, "Brand name can only contain letters, numbers, and spaces.", "Invalid Brand Name", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-
-            return true; // Valid brand
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "An unexpected error occurred while validating the brand name.", "Error", JOptionPane.ERROR_MESSAGE);
+            int age = Integer.parseInt(ageText.trim());
+            return isValidAge(age);
+        } catch (NumberFormatException e) {
             return false;
         }
     }

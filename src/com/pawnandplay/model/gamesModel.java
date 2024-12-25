@@ -21,7 +21,7 @@ public class gamesModel {
     public gamesModel() {
     }
 
-    public gamesModel(int ID, String productname, String level, String genre, int age, double price, int stock, String brand) {
+    public gamesModel(int ID, String productname, String level, String genre, int age, int stock, double price, String brand) {
         this.ID = ID;
         this.productname = productname;
         this.level = level;
