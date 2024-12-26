@@ -24,7 +24,6 @@ public class boardGames extends javax.swing.JFrame {
     private final ValidationUtil validationUtil;
     private final Color errorColor = new Color(255, 51, 0);
     private final Color greenColor = new Color(0, 255, 0);
-    //private final ValidationUtil validationUtil;
     
     /**
      * Creates new form boardGames
@@ -85,15 +84,14 @@ public class boardGames extends javax.swing.JFrame {
                 loadScreen("LoginScreen"); // Switch to login screen
             }
         };
-        worker.execute(); // Start the worker thread
+        worker.execute();// Start the worker thread
     }
     
     private void loadScreen(String screenName) {
         cardLayout.show(getContentPane(), screenName);
     }
     
-    // Method to add student data and populate the table
-    
+    // Method to add games data and populate the table
     private void registerGame (gamesModel games) {
         gamesList.add(games);
         DefaultTableModel model = (DefaultTableModel) gameTable.getModel();
@@ -1022,9 +1020,9 @@ public class boardGames extends javax.swing.JFrame {
             gamesList.forEach(game -> model.addRow(new Object[]{
                 game.getID(),              // Game ID
                 game.getProductname(),     // Game name
-                game.getLevel(),           // Game level (e.g., Beginner, Expert)
-                game.getGenre(),           // Game genre (e.g., Strategy, Fantasy)
-                game.getAge(),             // Recommended age for the game
+                game.getLevel(),           // Game level 
+                game.getGenre(),           // Game genre 
+                game.getAge() + "+",       // Recommended age for the game
                 game.getStock(),           // Game stock
                 game.getPrice(),           // Game price
                 game.getBrand()            // Game brand
@@ -1033,7 +1031,7 @@ public class boardGames extends javax.swing.JFrame {
    
    private void gamesData() {
         // Add some sample board game data to the gamesList
-        gamesList.add(new gamesModel(1, "Monopoly", "Beginner", "Family", 8, 30, 1200, "Hasbro"));
+        gamesList.add(new gamesModel(1, "Monopoly", "Beginner", "Family", 12, 30, 1200, "Hasbro"));
         gamesList.add(new gamesModel(2, "Catan", "Intermediate", "Strategy", 10, 50, 5000, "Kosmos"));
         gamesList.add(new gamesModel(3, "Scrabble", "Beginner", "Family", 8, 20, 2000, "Mattel"));
         gamesList.add(new gamesModel(4, "Ticket to Ride", "Intermediate", "Strategy", 10, 40, 4500, "Days of Wonder"));
@@ -1207,7 +1205,7 @@ public class boardGames extends javax.swing.JFrame {
     }//GEN-LAST:event_idfieldActionPerformed
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
-        // TODO add your handling code here:
+    // TODO add your handling code here:
         boolean isValid = true;
 
     // Validate Game ID
@@ -1422,7 +1420,7 @@ public class boardGames extends javax.swing.JFrame {
       */
     private void clearGameFields() {
          idfield.setText("");            // Clear the ID field
-         namefield.setText("");   // Clear the product name field
+         namefield.setText("");          // Clear the product name field
          levelfield.setText("");         // Clear the level field
          genrefield.setText("");         // Clear the genre field
          agefield.setText("");           // Clear the age field

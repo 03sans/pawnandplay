@@ -3,7 +3,7 @@ package com.pawnandplay.controller;
 import java.util.regex.Pattern;
 
 /**
- * Utility class for validating fields in the Pawn and Play inventory management system.
+ * class for validating fields in this application
  * Provides methods to validate various attributes.
  */
 public class ValidationUtil {

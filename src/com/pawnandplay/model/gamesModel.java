@@ -32,6 +32,7 @@ public class gamesModel {
         this.brand = brand;
     }
 
+    //getter methods of the attributes
     public int getID() {
         return ID;
     }
@@ -59,11 +60,12 @@ public class gamesModel {
     public int getStock() {
         return stock;
     }
-
+    
     public String getBrand() {
         return brand;
     }
 
+    //setter methods of the attributes 
     public void setID(int ID) {
         this.ID = ID;
     }
