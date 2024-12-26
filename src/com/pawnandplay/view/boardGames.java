@@ -21,6 +21,7 @@ public class boardGames extends javax.swing.JFrame {
     
     private List<gamesModel> gamesList;
     private java.awt.CardLayout cardLayout;
+    private final ValidationUtil validationUtil;
     private final Color errorColor = new Color(255, 51, 0);
     private final Color greenColor = new Color(0, 255, 0);
     //private final ValidationUtil validationUtil;
@@ -30,7 +31,7 @@ public class boardGames extends javax.swing.JFrame {
      */
     public boardGames() {
         initComponents();
-        //validationUtil = new ValidationUtil();
+        validationUtil = new ValidationUtil();
         initializeLayout(); //setup cardlayout and add screens
         initializeData(); 
         startProgress(); //display loading screen 
